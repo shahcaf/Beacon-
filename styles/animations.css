@@ -1,0 +1,153 @@
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* All-In-One Orbit Animation */
+.all-in-one-container {
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.orbit-center {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    z-index: 10;
+}
+
+.orbit-item {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    backdrop-filter: blur(4px);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Ecosystem Connect Animation */
+.ecosystem-container {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eco-node {
+    position: absolute;
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.eco-node:hover {
+    border-color: var(--highlight-red);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.4);
+}
+
+.eco-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--crimson-dark) 0%, var(--bg-card) 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    border: 2px solid var(--beacon-red);
+    box-shadow: 0 0 40px rgba(200, 16, 46, 0.5);
+    z-index: 3;
+}
+
+/* Simple setup timeline */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 4rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+}
+
+.step-num {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--crimson-dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--highlight-red);
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .timeline::before {
+        display: none;
+    }
+    .timeline-step {
+        width: 100%;
+    }
+}
